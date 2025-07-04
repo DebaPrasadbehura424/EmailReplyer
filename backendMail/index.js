@@ -4,7 +4,19 @@ const app = express();
 const userRouter = require("../backendMail/server/route/userRouters");
 
 app.use(express.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://email-replyer-frontend.vercel.app",
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
+    allowedHeaders: [
+      "Content-Type",
+      "Authorization",
+      "Accept",
+      "X-Requested-With",
+    ],
+  })
+);
 
 app.use("/api/email", userRouter);
 
