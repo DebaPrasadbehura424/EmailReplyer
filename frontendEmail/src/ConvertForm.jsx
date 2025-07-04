@@ -16,7 +16,7 @@ function ConvertForm() {
 
     try {
       const res = await axios.post(
-        "http://localhost:5757/api/email/emailScanner",
+        "https://email-replyer-backend.vercel.app/api/email/emailScanner",
         {
           emailContext: email,
           tone,
